@@ -20,3 +20,19 @@ This repository contains concise writeups and technical notes for completing the
    ```
 3. **Exploitation:** The target server suffered from a severe misconfiguration: the administrative root account (`root`) had a blank password. I bypassed authentication successfully by typing `root` and hitting Enter without providing a password.
 4. **Post-Exploitation:** Located (`ls`)and grabbed the flag from the home directory (`cat flag.txt`).
+   ---
+##  🦌 2. Machine: Fawn (Topic: Understanding FTP(File Tranfer Protocol))
+**Objective:** Audit an FTP server and exploit anonymous access permition
+**Tools used:** `nmap`, `ftp`
+### Methology:
+1. **Reconnaissance:** performed a version service scan on the target IP bypassing ping detection using Nmap:
+   ```bash
+   sudo nmap -Pn -sV <TARGET_IP>
+   ```
+   *the scan revealed that port **21/ftp** was open*
+ 2. **Vulnerability:** The target FTP daemon was enabled with **Anonymous FTP feature enabled**. This misconfigured protocol allowed me (**Public Unauthenticated User**)to get access to directories
+ 3. **Exploitation:** I logged in the server as an anonymous user
+    ```bash
+    ftp <TARGET_IP>
+    ```
+4. **Post Exploitation:** I used `ls` command to list directories and find the flag and got the flag using `get flag.txt`
