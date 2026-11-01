@@ -1,4 +1,4 @@
-# Hack The Box Crocodile
+# 🐊 Hack The Box Crocodile
 * **Date:** October 2026
 * **Vulnerability Class:** Information Disclosure & Web Directory Enumeration (chained attack)
 * **Tools Used:** `nmap`, `ftp`,<span style="color:red;"> `gobuster` </span> 
